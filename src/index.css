@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 主色调 - 靛蓝系 */
+    --primary: 230 65% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* 背景 */
+    --background: 220 20% 97%;
+    --foreground: 224 71% 4%;
+
+    /* 卡片 */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    /* 弹出层 */
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    /* 次要色 */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+
+    /* 静音色 */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* 强调色 */
+    --accent: 220 14% 96%;
+    --accent-foreground: 224 71% 4%;
+
+    /* 危险色 */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* 成功色 */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* 警告色 */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* 信息色 */
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* 边框/输入/聚焦 */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 230 65% 55%;
+    --radius: 0.625rem;
+
+    /* 甘特图专用色 */
+    --gantt-bar-primary: 230 65% 55%;
+    --gantt-bar-urgent: 0 84% 60%;
+    --gantt-bar-normal: 142 71% 45%;
+    --gantt-bar-low: 38 92% 50%;
+    --gantt-today: 230 65% 55%;
+    --gantt-weekend: 220 14% 96%;
+    --gantt-grid: 220 13% 91%;
+  }
+
+  .dark {
+    --primary: 230 65% 60%;
+    --primary-foreground: 224 71% 4%;
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 50% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 50% 8%;
+    --popover-foreground: 210 40% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 218 11% 65%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 71% 35%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 40%;
+    --warning-foreground: 210 40% 98%;
+    --info: 199 89% 38%;
+    --info-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 230 65% 60%;
+    --gantt-bar-primary: 230 65% 60%;
+    --gantt-bar-urgent: 0 84% 55%;
+    --gantt-bar-normal: 142 71% 50%;
+    --gantt-bar-low: 38 92% 55%;
+    --gantt-today: 230 65% 60%;
+    --gantt-weekend: 215 28% 12%;
+    --gantt-grid: 215 28% 17%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  /* 通用表单输入样式 */
+  .input-field {
+    @apply w-full px-3 py-2 rounded-lg border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition;
+  }
+  /* z-index 60，用于嵌套弹窗 */
+  .z-60 {
+    z-index: 60;
+  }
+}
+
+/* PWA 安装提示隐藏 */
+@media (display-mode: standalone) {
+  body {
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "name": "design-scheduler",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Design Scheduler",
+  "author": "DesignScheduler",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "electron:dev": "vite build && electron .",
+    "electron:build": "vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.1",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8",
+    "png-to-ico": "^3.0.1",
+    "postcss": "^8.4.49",
+    "rcedit": "^5.0.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5"
+  },
+  "build": {
+    "appId": "com.designscheduler.app",
+    "productName": "DesignScheduler",
+    "copyright": "Copyright 2026 DesignScheduler",
+    "electronVersion": "33.0.0",
+    "asarUnpack": [],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signingHashAlgorithms": null,
+      "sign": null,
+      "verifyUpdateCodeSignature": false,
+      "signAndEditExecutable": false
+    }
+  }
+}

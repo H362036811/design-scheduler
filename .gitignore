@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+dist-for-deploy*
+*.local
+.DS_Store
+.vercel
+.vercel-tmp
+release
+*.zip
+electron
+setup.ps1
+start.ps1
